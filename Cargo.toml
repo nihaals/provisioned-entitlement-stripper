@@ -1,0 +1,10 @@
+[package]
+name = "provisioned-entitlement-stripper"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+clap_complete_command = "0.6"
+plist = "1"
