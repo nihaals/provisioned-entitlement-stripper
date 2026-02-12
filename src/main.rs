@@ -110,6 +110,8 @@ fn main() -> Result<()> {
 mod tests {
     use super::*;
 
+    use std::collections::HashSet;
+
     fn remove_provisioned_entitlements_to_string(entitlements_xml: &[u8]) -> String {
         let mut entitlements: plist::Value = plist::from_bytes(entitlements_xml).unwrap();
         remove_provisioned_entitlements(&mut entitlements).unwrap();
@@ -126,5 +128,16 @@ mod tests {
             remove_provisioned_entitlements_to_string(entitlements_xml).replace('\n', "");
         let expected = r#"<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><dict><key>com.apple.security.device.camera</key><true/><key>com.apple.security.device.audio-input</key><true/><key>com.apple.security.automation.apple-events</key><true/></dict></plist>"#;
         assert_eq!(stripped_xml, expected);
+    }
+
+    #[test]
+    fn test_provisioned_entitlements_sorted() {
+        assert!(PROVISIONED_ENTITLEMENTS.is_sorted());
+    }
+
+    #[test]
+    fn test_provisioned_entitlements_unique() {
+        let unique: HashSet<&&str> = PROVISIONED_ENTITLEMENTS.iter().collect();
+        assert_eq!(unique.len(), PROVISIONED_ENTITLEMENTS.len());
     }
 }
