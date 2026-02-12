@@ -31,6 +31,7 @@ enum Commands {
 }
 
 const PROVISIONED_ENTITLEMENTS: &[&str] = &[
+    "beta-reports-active",
     "com.apple.application-identifier",
     "com.apple.developer.aps-environment",
     "com.apple.developer.associated-domains",
@@ -40,7 +41,9 @@ const PROVISIONED_ENTITLEMENTS: &[&str] = &[
     "com.apple.developer.team-identifier",
     "com.apple.developer.ubiquity-container-identifiers",
     "com.apple.developer.ubiquity-kvstore-identifier",
+    "com.apple.developer.weatherkit",
     "com.apple.security.application-groups",
+    "keychain-access-groups",
 ];
 
 fn remove_provisioned_entitlements(entitlements: &mut plist::Value) -> Result<()> {
