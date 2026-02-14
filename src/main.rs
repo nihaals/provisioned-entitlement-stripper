@@ -37,18 +37,33 @@ enum Commands {
 }
 
 const PROVISIONED_ENTITLEMENTS: &[&str] = &[
+    "application-identifier",
+    "aps-environment",
     "beta-reports-active",
     "com.apple.application-identifier",
     "com.apple.developer.aps-environment",
     "com.apple.developer.associated-domains",
+    "com.apple.developer.associated-domains.applinks.read-write",
+    "com.apple.developer.contacts.notes",
+    "com.apple.developer.hid.virtual.device",
     "com.apple.developer.icloud-container-environment",
     "com.apple.developer.icloud-container-identifiers",
     "com.apple.developer.icloud-services",
+    "com.apple.developer.maps",
+    "com.apple.developer.networking.custom-protocol",
+    "com.apple.developer.networking.networkextension",
+    "com.apple.developer.system-extension.install",
     "com.apple.developer.team-identifier",
     "com.apple.developer.ubiquity-container-identifiers",
     "com.apple.developer.ubiquity-kvstore-identifier",
+    "com.apple.developer.usernotifications.communication",
+    "com.apple.developer.usernotifications.time-sensitive",
     "com.apple.developer.weatherkit",
+    "com.apple.developer.web-browser.public-key-credential",
     "com.apple.security.application-groups",
+    "com.apple.vm.device-access",
+    "com.apple.vm.networking",
+    "get-task-allow",
     "keychain-access-groups",
 ];
 
